@@ -1,0 +1,11 @@
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.login .spotifLyLogo {
+  width: 70%;
+  max-width: 830px;
+}
