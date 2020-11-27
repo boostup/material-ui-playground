@@ -3,16 +3,17 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 
 import MainLayoutPageWrapper from "layout/MainLayoutPageWrapper";
+
 import useDemoStyles from "./demo.styles";
 
 export default function DemoPage() {
   const classes = useDemoStyles();
+
   return (
     <>
       <MainLayoutPageWrapper
         //
-        title="Home / Demo"
-        isLoading={false}
+        title="Demo page"
       >
         <div className={classes.demo}>
           <Typography paragraph>
