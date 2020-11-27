@@ -24,6 +24,11 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: theme.mixins.toolbar,
+  toolbar__title: {
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: drawerWidth + theme.spacing(1),
+    },
+  },
   drawerPaper: {
     width: drawerWidth,
   },

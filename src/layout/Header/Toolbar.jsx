@@ -21,7 +21,7 @@ export default function Toolbar({
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h6" noWrap>
+      <Typography variant="h6" className={classes.toolbar__title} noWrap>
         {title}
       </Typography>
     </MUIToolbar>
