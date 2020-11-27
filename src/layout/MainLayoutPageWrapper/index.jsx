@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { actions } from "redux-store/events/slice";
+import { selectIsDrawerOpen } from "redux-store/events/selectors";
 
 import HtmlHeadTitle from "../HtmlHeadTitle";
 import Sidebar from "../Sidebar";
@@ -11,11 +15,12 @@ import Backdrop from "layout/Backdrop/index";
 
 function MainLayoutPageWrapper({ title, isLoading, children }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const isDrawerOpen = useSelector(selectIsDrawerOpen());
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    dispatch(actions.toggleDrawer());
   };
 
   return (
@@ -23,11 +28,9 @@ function MainLayoutPageWrapper({ title, isLoading, children }) {
       <CssBaseline />
       <HtmlHeadTitle title={title} />
       <Header onMenuIconClicked={handleDrawerToggle} />
-      <Sidebar isOpen={mobileOpen} onClose={handleDrawerToggle} />
+      <Sidebar isOpen={isDrawerOpen} onClose={handleDrawerToggle} />
       <Body>
-        <p>
-          <Backdrop />
-        </p>
+        <Backdrop />
         {children}
       </Body>
     </div>
