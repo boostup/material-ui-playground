@@ -5,6 +5,7 @@ const slice = createSlice({
   initialState: {
     isLoading: false,
     isDrawerOpen: false,
+    error: null,
   },
   reducers: {
     toggleLoading(state, { payload }) {
@@ -12,6 +13,9 @@ const slice = createSlice({
     },
     toggleDrawer(state) {
       state.isDrawerOpen = !state.isDrawerOpen;
+    },
+    setError(state, { payload }) {
+      state.error = payload.message;
     },
   },
 });

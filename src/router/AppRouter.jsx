@@ -1,5 +1,7 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
+import { history } from "redux-store/configureStore";
 
 import PrivateRoute from "./PrivateRoute";
 import LoginPage from "pages/LoginPage";
@@ -9,7 +11,7 @@ import ErrorBoundary from "components/ErrorBoundary";
 
 const AppRouter = () => {
   return (
-    <Router>
+    <ConnectedRouter history={history}>
       <ErrorBoundary>
         <Switch>
           <PrivateRoute exact path="/">
@@ -23,7 +25,7 @@ const AppRouter = () => {
           </Route>
         </Switch>
       </ErrorBoundary>
-    </Router>
+    </ConnectedRouter>
   );
 };
 export default AppRouter;

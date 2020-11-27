@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
 
 import ContextualMenu from "components/ContextualMenu";
 
@@ -25,8 +26,10 @@ function AvatarArea({ src, displayName, menuOptions, classes }) {
         onClick={handleClick}
         color="inherit"
       >
-        <AccountCircle src={src} alt={displayName} />
-        <Typography noWrap>{displayName}</Typography>
+        <Avatar src={src} alt={displayName} />
+        <Hidden xsDown implementation="css">
+          <Typography noWrap>{displayName}</Typography>
+        </Hidden>
       </IconButton>
 
       <ContextualMenu

@@ -8,9 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
 
-// Create redux store with history
-const initialState = {};
-const store = configureStore(initialState);
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>

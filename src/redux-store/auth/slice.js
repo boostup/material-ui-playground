@@ -6,6 +6,9 @@ const slice = createSlice({
     user: null,
   },
   reducers: {
+    authStart(state, { payload }) {},
+    authSuccess(state, { payload }) {},
+    authFailure(state, { payload }) {},
     setUser(state, { payload }) {
       state.user = payload;
     },

@@ -15,7 +15,7 @@ export default function Toolbar({ title, classes, onClick }) {
   const menuOptions = useMenuOptions();
   const user = useSelector(selectAuthUser);
   const userAvatar = user?.images[0]?.url;
-  const userName = user?.display_name;
+  const userName = user?.displayName;
 
   return (
     <MUIToolbar>
