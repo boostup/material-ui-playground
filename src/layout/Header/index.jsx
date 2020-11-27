@@ -9,7 +9,12 @@ export default function Header({ title, onMenuIconClicked }) {
   const classes = useStyles();
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar title={title} classes={classes} onClick={onMenuIconClicked} />
+      <Toolbar
+        title={title}
+        className={classes.toolbar}
+        classes={classes}
+        onClick={onMenuIconClicked}
+      />
     </AppBar>
   );
 }

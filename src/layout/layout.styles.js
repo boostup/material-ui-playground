@@ -23,10 +23,23 @@ export const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    flexGrow: 1,
+  },
   toolbar__title: {
+    flexGrow: 1,
     [theme.breakpoints.up("sm")]: {
       marginLeft: drawerWidth + theme.spacing(1),
+    },
+  },
+  avatarArea: {
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer",
+    "& .MuiTypography-root": {
+      maxWidth: theme.spacing(15),
+      marginLeft: theme.spacing(1),
     },
   },
   drawerPaper: {
