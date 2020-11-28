@@ -2,6 +2,7 @@ import { all, takeLatest, call, put } from "redux-saga/effects";
 import { push } from "connected-react-router";
 
 import * as ls from "utils/localStorage";
+import { delay } from "utils/time";
 import { actions } from "./slice";
 import eventsActions from "../events/slice";
 
@@ -22,9 +23,17 @@ function* authWithStoredUserStart() {
   }
 }
 
+/**
+ *
+ * This is a demo implementation only - it is just a mocked delayed JS call
+ */
 function* authWithCredientials(credentials) {
   try {
     yield put(eventsActions.toggleLoading(true));
+
+    // simulating an API call which takes time to respond
+    yield call(delay, 2000);
+
     const user = {
       displayName: credentials.email,
       images: [

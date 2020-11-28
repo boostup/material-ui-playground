@@ -14,6 +14,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+
+import Backdrop from "layout/Backdrop/index";
+
 import { useStyles } from "./login-page.styles";
 
 function LoginPage() {
@@ -84,6 +87,7 @@ function LoginPage() {
           </Button>
         </form>
       </Paper>
+      <Backdrop />
     </main>
   );
 }

@@ -35,7 +35,7 @@ function MainLayoutPageWrapper({ title = "Material UI Playground", children }) {
       <CssBaseline />
       <HtmlHeadTitle title={headerTitle} />
       <Header title={headerTitle} onMenuIconClicked={handleDrawerToggle} />
-      <Sidebar isOpen={isDrawerOpen} onClose={handleDrawerToggle} />
+      <Sidebar isOpen={isDrawerOpen} toggleDrawer={handleDrawerToggle} />
       <Body>
         <Backdrop />
         {children}

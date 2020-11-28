@@ -3,6 +3,7 @@ import React from "react";
 import { useTheme } from "@material-ui/core/styles";
 
 import Drawer from "@material-ui/core/Drawer";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Hidden from "@material-ui/core/Hidden";
 
 import DrawerContent from "./DrawerContent";
@@ -10,7 +11,7 @@ import { menuOptionsTop, menuOptionsBottom } from "./menuOptions";
 
 import { useStyles } from "../layout.styles";
 
-function Sidebar({ isOpen, onClose }) {
+function Sidebar({ isOpen, toggleDrawer }) {
   const theme = useTheme();
   const classes = useStyles();
 
@@ -18,16 +19,17 @@ function Sidebar({ isOpen, onClose }) {
     <nav className={classes.drawer} aria-label="mailbox folders">
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Hidden smUp implementation="css">
-        <Drawer
+        <SwipeableDrawer
           variant="temporary"
           anchor={theme.direction === "rtl" ? "right" : "left"}
           open={isOpen}
-          onClose={onClose}
+          onClose={toggleDrawer}
+          onOpen={toggleDrawer}
           classes={{
             paper: classes.drawerPaper,
           }}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: false,
           }}
         >
           <DrawerContent
@@ -35,7 +37,7 @@ function Sidebar({ isOpen, onClose }) {
             menuOptionsBottom={menuOptionsBottom}
             classes={classes}
           />
-        </Drawer>
+        </SwipeableDrawer>
       </Hidden>
       <Hidden xsDown implementation="css">
         <Drawer
