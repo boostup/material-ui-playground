@@ -3,7 +3,6 @@ import { FixedSizeList } from "react-window";
 
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import { useTheme } from "@material-ui/core/";
 import AutoSizer from "react-virtualized-auto-sizer";
 
 import DrawerOption from "./DrawerOption";
@@ -11,8 +10,6 @@ import DrawerOption from "./DrawerOption";
 import { renderDrawerOption } from "./DrawerOption";
 
 function DrawerContent({ menuOptionsTop, menuOptionsBottom, classes }) {
-  const theme = useTheme();
-  console.log(theme.mixins.toolbar);
   return (
     <div className="inner">
       <div className="top-panel">
@@ -20,8 +17,8 @@ function DrawerContent({ menuOptionsTop, menuOptionsBottom, classes }) {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {menuOptionsTop.map((text, index) => (
-            <DrawerOption i={index} label={text} />
+          {menuOptionsTop.map(({ label, icon }, index) => (
+            <DrawerOption key={index} i={index} label={label} icon={icon} />
           ))}
         </List>
         <Divider />
