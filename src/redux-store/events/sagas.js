@@ -1,4 +1,4 @@
-import { all, takeLatest, call, put } from "redux-saga/effects";
+import { all, takeLatest, call } from "redux-saga/effects";
 
 import { actions } from "./slice";
 
@@ -8,7 +8,7 @@ import { actions } from "./slice";
 
 export function* watchToggleDrawerFlow() {
   yield takeLatest(actions.toggleDrawer.type, function* () {
-    console.log("Toggling drawer");
+    yield console.log("Toggling drawer");
   });
 }
 

@@ -10,5 +10,5 @@ export const getHashFromResponse = (locationHash) => {
 };
 
 export const isExternalResource = (url) => {
-  return url.includes("http");
+  return url?.includes("http");
 };
