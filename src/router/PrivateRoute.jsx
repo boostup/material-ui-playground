@@ -1,5 +1,5 @@
 import { Redirect, Route } from "react-router-dom";
-import useAuth from "utils/useAuth";
+import useAuth from "redux-store/auth/useAuth";
 
 export default function PrivateRoute({ children, ...rest }) {
   const user = useAuth();

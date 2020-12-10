@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
+import { selectIsLoading } from "redux-store/events/selectors";
+
 import MUIBackdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,26 +16,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Backdrop() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
+  const isLoading = useSelector(selectIsLoading());
 
   return (
-    <div>
-      <Button variant="outlined" color="primary" onClick={handleToggle}>
-        Show backdrop
-      </Button>
-      <MUIBackdrop
-        className={classes.backdrop}
-        open={open}
-        onClick={handleClose}
-      >
+    <>
+      <MUIBackdrop className={classes.backdrop} open={isLoading}>
         <CircularProgress color="inherit" />
       </MUIBackdrop>
-    </div>
+    </>
   );
 }
